@@ -5,6 +5,7 @@ import Auth from "./components/Auth"
 import {BrowserRouter, Switch, Route} from "react-router-dom"
 import {useHttp} from "./hooks/http.hook"
 import AdminPanel from "./components/AdminPanel"
+import Snow from "./components/Snow";
 
 const data = [
     {
@@ -78,6 +79,7 @@ function App() {
 
     return (
         <div className={'app'}>
+            <Snow />
             <BrowserRouter>
                 <Switch>
                     <Route exact path={"/"}

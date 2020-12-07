@@ -8,7 +8,8 @@ const UpdateCompanyModal = ({onCancel, company}) => {
     const [form, setForm] = useState({
         image: company.image,
         name: company.name,
-        href: company.href
+        href: company.href,
+        anchorr: company.anchorr
     })
     const formHandler = (e) => {
         setForm({...form, [e.target.name]: e.target.value})
@@ -52,6 +53,13 @@ const UpdateCompanyModal = ({onCancel, company}) => {
                            type="text"
                            name={"href"}
                            value={form.href}
+                           onChange={formHandler}
+                    />
+                    <input placeholder="Enter an anchor"
+                           id="anchorr"
+                           type="text"
+                           name={"anchorr"}
+                           value={form.anchorr}
                            onChange={formHandler}
                     />
                 </div>

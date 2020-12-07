@@ -19,8 +19,8 @@ router.get('/',
 router.post('/save',
     async (req, res) => {
         try {
-            const { image, name, href } = req.body
-            const company = new Company({ image, name, href })
+            const { image, name, href, anchorr } = req.body
+            const company = new Company({ image, name, href, anchorr })
             await company.save()
             res.status(201).json({
                 message: 'Company is successfully added'
@@ -52,11 +52,11 @@ router.delete('/delete',
 router.post('/update',
     async (req, res) => {
         try {
-            const { id, image, name, href } = req.body
+            const { id, image, name, href, anchorr } = req.body
             console.log(id)
             await Company.findByIdAndUpdate(
                 id,
-                { $set: { image, name, href } },
+                { $set: { image, name, href, anchorr } },
                 { new: true }
                 )
             res.status(200).json({

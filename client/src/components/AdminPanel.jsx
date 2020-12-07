@@ -4,10 +4,12 @@ import {useAuth} from "../hooks/auth.hook";
 import {NavLink, Redirect} from "react-router-dom";
 import CompanyRemastering from "./CompanyRemastering"
 import UpdateCompanyModal from "./UpdateCompanyModal";
+import DeleteModal from "./DeleteModal";
 
 const AdminPanel = ({companies}) => {
 
     const [isModalUpdate, setModalUpdate] = useState(false)
+    const [isModalDelete, setModalDelete] = useState(false)
     const [companyForModal, setCompanyForModal] = useState({})
     const [form, setForm] = useState({
         image: '',
@@ -23,6 +25,11 @@ const AdminPanel = ({companies}) => {
         setModalUpdate(true)
     }
 
+    const deleteCompany = (company) => {
+        setCompanyForModal(company)
+        setModalDelete(true)
+    }
+
     const formHandler = (e) => {
         setForm({...form, [e.target.name]: e.target.value})
     }
@@ -34,7 +41,8 @@ const AdminPanel = ({companies}) => {
             setForm({
                 image: '',
                 name: '',
-                href: ''
+                href: '',
+                anchorr: ''
             })
         } catch (e) {
         }
@@ -47,6 +55,7 @@ const AdminPanel = ({companies}) => {
     return (
         <div>
             {isModalUpdate && <UpdateCompanyModal onCancel={() => setModalUpdate(false)} company={companyForModal} />}
+            {isModalDelete && <DeleteModal onCancel={() => setModalDelete(false)} company={companyForModal} />}
             {token && <div>
                 <header className="header header__between">
                     <div className={"header__logo"}>Admin Panel</div>
@@ -79,12 +88,21 @@ const AdminPanel = ({companies}) => {
                                value={form.href}
                                onChange={formHandler}
                         />
+                        <input placeholder="Enter an anchor"
+                               id="anchorr"
+                               type="text"
+                               name={"anchorr"}
+                               value={form.anchorr}
+                               onChange={formHandler}
+                        />
                         <button onClick={saveCompanyHandler}>Save</button>
                     </div>
                     <div className={'admin-panel'}>
-                        <h2>Delete Company</h2>
+                        <h2>Delete or Update Company</h2>
                         <div>
-                            {companies.map(company => <CompanyRemastering company={company} updateCompany={updateCompany}/>)}
+                            {companies.map(company => <CompanyRemastering company={company}
+                                                                          deleteCompany={deleteCompany}
+                                                                          updateCompany={updateCompany}/>)}
                         </div>
                     </div>
                 </div>

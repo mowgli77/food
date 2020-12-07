@@ -1,15 +1,6 @@
 import React from 'react'
-import {useHttp} from "../hooks/http.hook";
 
-const CompanyRemastering = ({company, updateCompany}) => {
-
-    const { request } = useHttp()
-
-    const deleteCompany = async () => {
-        const data = await request('/api/companies/delete', 'DELETE', { id: company._id})
-        console.log(data.message)
-    }
-
+const CompanyRemastering = ({company, updateCompany, deleteCompany}) => {
 
     return (
     <div className={'remast'}>
@@ -18,7 +9,7 @@ const CompanyRemastering = ({company, updateCompany}) => {
         </div>
         <div className={'remast__options'}>
             <button onClick={() => updateCompany(company)}>Update</button>
-            <button onClick={deleteCompany}>Delete</button>
+            <button onClick={() => deleteCompany(company)}>Delete</button>
         </div>
     </div>
     )

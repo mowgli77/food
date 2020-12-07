@@ -74,6 +74,7 @@ router.post('/login',
                 res.status(400).json({
                     message: 'Wrong password'
                 })
+                console.log('Wrong password')
             }
             const token = jwt.sign(
                 {adminId: admin.id},
