@@ -105,7 +105,6 @@ body {
     left: 0;
     object-fit: cover;
     z-index: 0;
-    opacity: 90%;
 }
 .companies-card__label {
     display: grid;
