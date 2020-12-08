@@ -42,7 +42,8 @@ const AdminPanel = ({companies}) => {
                 image: '',
                 name: '',
                 href: '',
-                anchorr: ''
+                anchorr: '',
+                description: ''
             })
         } catch (e) {
         }
@@ -72,6 +73,13 @@ const AdminPanel = ({companies}) => {
                                type="text"
                                name={"image"}
                                value={form.image}
+                               onChange={formHandler}
+                        />
+                        <input placeholder="Description"
+                               id="description"
+                               type="text"
+                               name={"description"}
+                               value={form.description}
                                onChange={formHandler}
                         />
                         <input placeholder="Enter a name"

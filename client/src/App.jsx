@@ -69,7 +69,13 @@ function App() {
 
     const searchText = (e) => {
         let text = e.currentTarget.value.toUpperCase();
-        let filterCompanies = fetchedCompanies.filter(s => s.name.toUpperCase().includes(text))
+        let filterCompaniesN = fetchedCompanies.filter(s => s.name.toUpperCase().includes(text))
+        let filterCompaniesD = fetchedCompanies.filter(s => {
+            if (s.description) {
+                return s.description.toUpperCase().includes(text)
+            }
+        })
+        let filterCompanies = filterCompaniesN.concat(filterCompaniesD)
         if (text.trim().length === 0) {
             setCompanies(fetchedCompanies)
         } else {

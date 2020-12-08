@@ -5,6 +5,7 @@ const schema = new Schema({
     name: { type: String, required: true },
     href: { type: String, required: true },
     anchorr: { type: String, default: null },
+    description: { type: String, default: null }
 })
 
 module.exports = model('Company', schema)

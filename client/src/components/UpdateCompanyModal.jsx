@@ -9,7 +9,8 @@ const UpdateCompanyModal = ({onCancel, company}) => {
         image: company.image,
         name: company.name,
         href: company.href,
-        anchorr: company.anchorr
+        anchorr: company.anchorr,
+        description: company.description,
     })
     const formHandler = (e) => {
         setForm({...form, [e.target.name]: e.target.value})
@@ -39,6 +40,13 @@ const UpdateCompanyModal = ({onCancel, company}) => {
                            type="text"
                            name={"image"}
                            value={form.image}
+                           onChange={formHandler}
+                    />
+                    <input placeholder="Description"
+                           id="description"
+                           type="text"
+                           name={"description"}
+                           value={form.description}
                            onChange={formHandler}
                     />
                     <input placeholder="Enter a name"
