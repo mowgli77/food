@@ -328,6 +328,9 @@ h2 {
         min-width: 360px;
         text-align: center;
     }
+    .boss {
+        height: 63px;
+    }
     .header__search {
         transform: scale(0);
     }
