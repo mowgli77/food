@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Snow = () => {
+export const Snow = () => {
     const snows = new Array(25).fill('❅')
 
     return (
@@ -9,5 +9,3 @@ const Snow = () => {
         </div>
     );
 }
-
-export default Snow

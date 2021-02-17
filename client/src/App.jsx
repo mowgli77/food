@@ -5,52 +5,12 @@ import Auth from "./components/Auth"
 import {BrowserRouter, Switch, Route} from "react-router-dom"
 import {useHttp} from "./hooks/http.hook"
 import AdminPanel from "./components/AdminPanel"
-import Snow from "./components/Snow";
+import {Snow} from "./components/Snow";
+import {Banner} from "./components/Banner";
+import Header from "./components/Header";
 
-const data = [
-    {
-        id: 1,
-        image: 'https://p2.zoon.ru/preview/2Zwr-hEzDLUFkEjPZ15c4A/492x440x85/0/1/c/51515622a0f3025414000004_515156cdde646.jpg',
-        name: 'SUSHIYA', href: 'https://sushiya.ua/'
-    },
-    {
-        id: 2,
-        image: 'https://p2.zoon.ru/preview/2Zwr-hEzDLUFkEjPZ15c4A/492x440x85/0/1/c/51515622a0f3025414000004_515156cdde646.jpg',
-        name: 'SUSHIYA', href: 'https://sushiya.ua/'
-    },
-    {
-        id: 3,
-        image: 'https://p2.zoon.ru/preview/2Zwr-hEzDLUFkEjPZ15c4A/492x440x85/0/1/c/51515622a0f3025414000004_515156cdde646.jpg',
-        name: 'SUSHIYA', href: 'https://sushiya.ua/'
-    },
-    {
-        id: 4,
-        image: 'https://p2.zoon.ru/preview/2Zwr-hEzDLUFkEjPZ15c4A/492x440x85/0/1/c/51515622a0f3025414000004_515156cdde646.jpg',
-        name: 'SUSHIYA', href: 'https://sushiya.ua/'
-    },
-    {
-        id: 5,
-        image: 'https://p2.zoon.ru/preview/2Zwr-hEzDLUFkEjPZ15c4A/492x440x85/0/1/c/51515622a0f3025414000004_515156cdde646.jpg',
-        name: 'SUSHIYA', href: 'https://sushiya.ua/'
-    },
-    {
-        id: 6,
-        image: 'https://p2.zoon.ru/preview/2Zwr-hEzDLUFkEjPZ15c4A/492x440x85/0/1/c/51515622a0f3025414000004_515156cdde646.jpg',
-        name: 'SUSHIYA', href: 'https://sushiya.ua/'
-    },
-    {
-        id: 7,
-        image: 'https://p2.zoon.ru/preview/2Zwr-hEzDLUFkEjPZ15c4A/492x440x85/0/1/c/51515622a0f3025414000004_515156cdde646.jpg',
-        name: 'SUSHIYA', href: 'https://sushiya.ua/'
-    },
-    {
-        id: 8,
-        image: 'https://p2.zoon.ru/preview/2Zwr-hEzDLUFkEjPZ15c4A/492x440x85/0/1/c/51515622a0f3025414000004_515156cdde646.jpg',
-        name: 'SUSHIYA', href: 'https://sushiya.ua/'
-    }
-]
 
-var fetchedCompanies = []
+let fetchedCompanies = []
 
 function App() {
 
@@ -84,25 +44,34 @@ function App() {
     }
 
     return (
-        <div className={'app'}>
-            <Snow />
+        <div /*className={'banner__grid'}*/>
+            {/*<Banner/>*/}
             <BrowserRouter>
-                <Switch>
-                    <Route exact path={"/"}
-                           render={() => <Content companies={companies} searchText={searchText}/>}
-                    />
-                    <Route exact path={"/admin"}
-                           render={() => <Auth/>}
-                    />
-                    <Route exact path={"/admin/panel"}
-                           render={() => <AdminPanel companies={companies}/>}
-                    />
-                </Switch>
+                {/*<div className={'container'}>*/}
+                    <div className={'app'}>
+                        {/*<Snow/>*/}
+                        <Header searchText={searchText}/>
+                        <Switch>
+                            <Route exact path={"/"}
+                                   render={() => <Content companies={companies}
+                                                          // searchText={searchText}
+                                       />}
+                            />
+                            <Route exact path={"/admin"}
+                                   render={() => <Auth/>}
+                            />
+                            <Route exact path={"/admin/panel"}
+                                   render={() => <AdminPanel companies={companies}/>}
+                            />
+                        </Switch>
+                    </div>
+                {/*</div>*/}
             </BrowserRouter>
+             {/*<div className={'banner_right'}>*/}
+             {/*</div>*/}
         </div>
     )
 }
 
 export default App
 
-//sdfgdrhfyjhg

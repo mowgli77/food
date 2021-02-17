@@ -1,27 +1,41 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState, useRef} from 'react'
 import {useLocation} from "react-router-dom";
 
 
-const Header = ({ searchText }) => {
+const Header = ({searchText}) => {
 
-    const location = useLocation()
+    // const [inputValue, setInputValue] = useState(anc);
+
+    const location = useLocation();
 
     useEffect(() => {
-        const hash = location.hash
-        setTimeout(() => {
-            if (hash && document.getElementById(hash.substr(1))) {
-                console.log(hash)
-                document.getElementById(hash.substr(1)).scrollIntoView({behavior: "auto"})
-            }
-        }, 300)
-    }, [location.hash])
+        if (location.hash) {
+            setTimeout(() => {
+                searchText({
+                    currentTarget: {
+                        value: location.hash.substr(1)
+                    }
+                });
+            }, 300)
+        }
+    }, []);
+
+
+    // useEffect(() => {
+    //     const hash = location.hash
+    //     setTimeout(() => {
+    //         if (hash && document.getElementById(hash.substr(1))) {
+    //             document.getElementById(hash.substr(1)).scrollIntoView({behavior: "auto"})
+    //         }
+    //     }, 300)
+    // }, [location.hash]);
 
 
     return (
         <header className="header header__center">
-            <div className={"heder__title"}>Christmas Sale</div>
+            <div className={"heder__title"}>Ликвидация цен на все семена</div>
             <div className={"header__search"}>
-                <input placeholder={'Search'} type={'text'} onKeyUp={searchText} />
+                <input placeholder={'Поиск'} type={'text'} onKeyUp={searchText}/>
             </div>
         </header>
     );
