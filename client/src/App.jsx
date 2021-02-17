@@ -50,11 +50,11 @@ function App() {
                 {/*<div className={'container'}>*/}
                     <div className={'app'}>
                         {/*<Snow/>*/}
-                        <Header searchText={searchText}/>
+                        {/*<Header searchText={searchText}/>*/}
                         <Switch>
                             <Route exact path={"/"}
                                    render={() => <Content companies={companies}
-                                                          // searchText={searchText}
+                                                          searchText={searchText}
                                        />}
                             />
                             <Route exact path={"/admin"}

@@ -108,7 +108,8 @@ const AdminPanel = ({companies}) => {
                     <div className={'admin-panel'}>
                         <h2>Delete or Update Company</h2>
                         <div>
-                            {companies.map(company => <CompanyRemastering company={company}
+                            {companies.map((company, idx) => <CompanyRemastering company={company}
+                                                                                 idx={idx}
                                                                           deleteCompany={deleteCompany}
                                                                           updateCompany={updateCompany}/>)}
                         </div>

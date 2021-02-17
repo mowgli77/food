@@ -19,7 +19,7 @@ const Content = ({ searchText, companies}) => {
 
     return (
         <div>
-            {/*<Header searchText={searchText}/>*/}
+            <Header searchText={searchText}/>
             <div className={'content'}>
                 <CompaniesList companies={companies} gclid={gclid}/>
             </div>

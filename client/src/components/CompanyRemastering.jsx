@@ -1,11 +1,11 @@
 import React from 'react'
 
-const CompanyRemastering = ({company, updateCompany, deleteCompany}) => {
+const CompanyRemastering = ({company, updateCompany, deleteCompany, idx}) => {
 
     return (
     <div className={'remast'}>
         <div className={'remast__tittle'}>
-            {company.name}
+            {idx + 1}. {company.name}
         </div>
         <div className={'remast__options'}>
             <button onClick={() => updateCompany(company)}>Update</button>
