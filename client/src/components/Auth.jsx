@@ -58,11 +58,12 @@ const Auth = () => {
                 />
                 <div>
                     <button onClick={loginHandler}>Login</button>
-                    <button onClick={registerHandler}>Register</button>
+                    <button disabled={true} onClick={registerHandler}>Register</button>
                 </div>
             </div>
         </div>
     )
 }
+
 
 export default Auth
